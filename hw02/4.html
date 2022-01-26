@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо реализовать четыре функции, каждая функция должна принимать по два
+числа и выполнять одну из операций (каждая функция выполняет одну из них):
+1. Сложение
+2. Разность
+3. Умножение
+4. Деление
+
+Необходимо сделать так, чтобы функция вернула число, например выражение
+`console.log(sum(2, 6));` должно вывести число 8 в консоль (sum - функция
+сложения в данном примере, ваши названия функций могут отличаться).
+
+Округлять значения, которые возвращают функции не нужно, однако, обратите
+внимание на разность, функция должна вычесть из большего числа меньшее, либо
+вернуть 0, если числа равны.
+
+Функциям всегда передаются корректные числа, проверки на NaN, Infinity делать
+не нужно.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+<script>
+"use strict";
+
+const a = +prompt('Введите первое число.');
+const b = +prompt('Введите второе число.');
+
+/**
+ * Функция посчитает и выведет сумму чисел введенных пользователем
+ * @param  {number} a - первое число
+ * @param  {number} b - второе число
+ * @param  {number} {console.log(a+b) Выводим в консоль сумму чисел
+ */
+function showSum(a, b) {
+  console.log(a + b);
+}
+showSum(a, b);
+
+/**
+ * Функция сравнит введенные пользователем числа и в зависимости от результата
+ * выведет разницу соответствующих чисел
+ * @param  {number} a - первое число
+ * @param  {number} b - второе число
+ * @param  {boolean} {if(a>b) Проверяем условие где a больше b
+ * @param  {number} {console.log(a-b) Выводим в консоль разницу чисел
+ * @param  {boolean} ;}elseif(a<b) Проверяем условие где b больше a
+ * @param  {number} {console.log(b-a) Выводим в консоль разницу чисел
+ * @param  {number} ;}else{console.log(0)Выводим в консоль 0 при равенстве чисел
+ */
+function showDifference(a, b) {
+  if (a > b) {
+    console.log(a - b);
+  } else if (a < b) {
+    console.log(b - a);
+  } else {
+  console.log(0);
+  }
+} 
+showDifference(a, b);
+
+/**
+ * @param  {number} a - первое число
+ * @param  {number} b - второе число
+ * @param  {number} {console.log(a*b) Выводим в консоль произведение чисел
+ */
+function showMultiplication(a, b) {
+  console.log(a * b);
+} 
+showMultiplication(a, b);
+
+/**
+ * @param  {number} a - первое число
+ * @param  {number} b - второе число
+ * @param  {number} {console.log(a/b) Выводим в консоль частное чисел
+ */
+function showDivision(a, b) {
+  console.log(a / b);
+} 
+showDivision(a, b);
+
+</script>
+</body>
+</html>

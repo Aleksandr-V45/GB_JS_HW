@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+Необходимо реализовать функцию:
+mathOperation(arg1, arg2, operation);
+Параметры:
+arg1 - первое число.
+arg2 - второе число.
+operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+Функция mathOperation должна вернуть результат операции, который был передан в
+параметр operation для двух первых аргументов (arg1 и arg2).
+Функция mathOperation должна использовать для вычисления функции из 4 задания.
+
+Примеры вызова функции:
+console.log(mathOperation(5, 3, "+")); // 8
+console.log(mathOperation(5, 3, ":)")); // NaN
+
+Функции mathOperation всегда передаются корректные числа, проверки на NaN,
+Infinity делать не нужно, однако, в случае если был передан некорректный
+аргумент в параметр operation, необходимо вернуть NaN.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+<script>
+  "use strict";
+
+  const a = +prompt('Введите первое число.');
+  const b = +prompt('Введите второе число.');
+  const operation = prompt('Какое арифметическое действие сделать с числом');
+
+ /**
+ * Функция посчитает и выведет сумму чисел введенных пользователем
+ * @param  {number} a - первое число
+ * @param  {number} b - второе число
+ * @param  {number} {console.log(a+b) Выводим в консоль сумму чисел
+ */
+function showSum(a, b) {
+  console.log(a + b);
+}
+showSum(a, b);
+
+/**
+ * Функция сравнит введенные пользователем числа и в зависимости от результата
+ * выведет разницу соответствующих чисел
+ * @param  {number} a - первое число
+ * @param  {number} b - второе число
+ * @param  {boolean} {if(a>b) Проверяем условие где a больше b
+ * @param  {number} {console.log(a-b) Выводим в консоль разницу чисел
+ * @param  {boolean} ;}elseif(a<b) Проверяем условие где b больше a
+ * @param  {number} {console.log(b-a) Выводим в консоль разницу чисел
+ * @param  {number} ;}else{console.log(0)Выводим в консоль 0 при равенстве чисел
+ */
+function showDifference(a, b) {
+  if (a > b) {
+    console.log(a - b);
+  } else if (a < b) {
+    console.log(b - a);
+  } else {
+  console.log(0);
+  }
+} 
+showDifference(a, b);
+
+/**
+ * @param  {number} a - первое число
+ * @param  {number} b - второе число
+ * @param  {number} {console.log(a*b) Выводим в консоль произведение чисел
+ */
+function showMultiplication(a, b) {
+  console.log(a * b);
+} 
+showMultiplication(a, b);
+
+/**
+ * @param  {number} a - первое число
+ * @param  {number} b - второе число
+ * @param  {number} {console.log(a/b) Выводим в консоль частное чисел
+ */
+function showDivision(a, b) {
+  console.log(a / b);
+} 
+showDivision(a, b);
+
+/**
+ * @param  {number} arg1 - первое число
+ * @param  {number} arg2 - второе число
+ * @param  {string} operation - арифметическое действие выбранное пользователем
+ * Так как нужно проверить много условий используем switch case вместо if else 
+ * if для сокращения кода. В switch заводим переменную operation и в зависимости 
+ * от нее выбираем функцию которая будет выполняться.
+ * @return {number} - Выводим число полученное в результате выполнения функции 
+ * или выводим NaN если был передан некорректный аргумент в параметр operation.
+ */
+  function mathOperation(arg1, arg2, operation) {
+    switch (operation) {
+      case "+": return showSum(arg1, arg2);
+      case "-": return showDifference(arg1, arg2);
+      case "*": return showMultiplication(arg1, arg2);
+      case "/": return showDivision(arg1, arg2);
+      default: return NaN;
+    }
+  }
+</script>
+</body>
+</html>
