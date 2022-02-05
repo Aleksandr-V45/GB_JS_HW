@@ -29,30 +29,48 @@
 можно прочитать как "от нуля до 999 включительно".
 -->
 <script>
-  "use strict";
+"use strict";
 
-  /**
-   * Функция разбивает число по разрядам и возвращает объект с записанными
-   * разрядами числа.
-   * @param {number} num - Число в диапазоне [0, 999], которое разобьется на
-   * разряды.
-   * @returns {object} Объект с разрядами числа или пустой объект в случае
-   * ошибки.
-   */
-  function getDigitsOfNumber(num) {
-    if (!Number.isInteger(num) || num < 0 || num > 999) {
-      console.error('Wrong argument, it must be an integer in range [0, 999].');
-      return {};
-    }
+/**
+ * Просим пользователя ввести число с указанными параметрами.
+ * Превращаем введенное пользователем значение в число с помощью `+`, иначе при 
+ * каждом вычислении js будет превращать строку в число.
+ */
+const number = +prompt
+('Введите целое положительное число в диапазоне от 0 до 1000');
 
+/**
+ * Создаем функцию.
+ * @param {number} number  Передаем число набранное пользователем.
+ * @returns {object} Функция возвращает нам объект с заданными свойствами, если 
+ * число соответствует указанным параметрам, либо пустой обект - если число не 
+ * соответствует.
+ */
+function getDigitsOfNumber(number) {
+  if (number >= 0 && number < 1000 && Number.isInteger(number)) {
     return {
-      units: num % 10,
-      dozens: Math.floor(num / 10) % 10,
-      hundreds: Math.floor(num / 100),
+      units: number % 10,
+      dozens: Math.trunc((number % 100) / 10),
+      hundreds: Math.trunc((number % 1000) / 100),
     };
-  }
+  } else {
 
-  console.log(getDigitsOfNumber(123));
+/**
+* Так как здесь сообщение об ошибке, то более уместным будет употребление 
+* метода `console.error`.
+* Вместо него можно использовать `console.log` (как наиболее часто 
+* употребляемый) или `console.warn`.
+*/
+    console.error('Число не соответствует заданным параметрам.');
+    return {};
+  } 
+}
+
+console.log(`Вы ввели число ${number}`);
+console.log(getDigitsOfNumber(number));
+
+
+
 </script>
 </body>
 </html>
